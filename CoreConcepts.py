@@ -26,3 +26,21 @@ if user_number + 10 == 20:
     print("This is great")
 else:
     print("not the right answer")
+
+# while loop
+number = 0
+while number < 3:
+    print(number)
+    number += 1
+
+# Listen
+namen_aus_meiner_klasse = ["Luca", "Markus", "Daniil", "Erik"]
+namen_aus_meiner_klasse[0] = "Charlotte"
+namen_aus_meiner_klasse.append("Luca")
+
+# For Loops
+for num in range(3):
+    print(num)
+
+for name in namen_aus_meiner_klasse:
+    print("Hallo " + name)
