@@ -1,0 +1,91 @@
+import random
+
+list_of_question = [
+    "Was ist dein Lieblingsessen?",
+    "Hast du schon einmal etwas gemacht, ohne es deinen Eltern zu sagen?",
+    "Welches Tier hättest du gerne als Haustier?",
+    "Was war das Peinlichste, das dir je passiert ist?",
+    "Wenn du zaubern könntest, was würdest du machen?",
+    "Was ist dein Lieblingslied?",
+    "Was würdest du machen, wenn du einen Tag lang unsichtbar wärst?",
+    "Welchen Superhelden findest du am coolsten?",
+    "Was ist dein Lieblingsfilm?",
+    "Wovor hast du ein bisschen Angst?"
+]
+
+list_of_action = [
+    "Mach 5 Hampelmänner.",
+    "Zieh dir einen Socken über die Hand und tu so, als ob es eine Puppe wäre.",
+    "Rede 1 Minute lang wie ein Pirat.",
+    "Lauf einmal um den Tisch.",
+    "Zieh dein T-Shirt falsch herum an.",
+    "Tanz wie ein Roboter für 30 Sekunden.",
+    "Sag das Alphabet rückwärts (so gut du kannst).",
+    "Mach ein lustiges Gesicht und halte es 10 Sekunden.",
+    "Gib jemandem eine Umarmung.",
+    "Sing ein Lied, das dir gefällt – ganz leise."
+]
+gamer_list = []
+
+
+def gamers(list):
+    need_next_player = ""
+    while True:
+        name = input("Spielername eingeben: ")
+        if 0 < len(name) <= 2:
+            print("Error: the name needs to be longer than two characters")
+            continue
+        list.append(str.capitalize(name))
+        print(gamer_list)
+        if len(list) >= 2:
+            need_next_player = input("Mehr Spieler Y/N ")
+            if need_next_player == str.lower("y") or need_next_player == str.lower("yes"):
+                continue
+            else:
+                break
+
+
+def game(list_of_question, list_of_action, gamer_list):
+    again = True
+    while again:
+        for gamer in gamer_list:
+            print()
+            user_choice = input(gamer + ": Question or Action?")
+
+            if user_choice == str.lower("q") or user_choice == str.lower("question"):
+                question_index = random.randint(0, len(list_of_question)-1)
+                print(list_of_question[question_index])
+                list_of_question.pop(question_index)
+            elif user_choice == str.lower("a") or user_choice == str.lower("action"):
+                action_index = random.randint(0, len(list_of_action)-1)
+                print(list_of_action[action_index])
+                list_of_action.pop(action_index)
+            else:
+                print("Do and answer")
+                question_index = random.randint(0, len(list_of_question) - 1)
+                print(list_of_question[question_index])
+                list_of_question.pop(question_index)
+
+                action_index = random.randint(0, len(list_of_action) - 1)
+                print(list_of_action[action_index])
+                list_of_action.pop(action_index)
+
+                next_step = ""
+                if gamer_list[-1] == gamer:
+                    next_step = input("Next Player? Y/N")
+            inp_again = input("Do you want to play again? n for no, otherwise it continiouses")
+            if inp_again == "n":
+                again = False
+            if len(list_of_question) == 0 or len(list_of_action) == 0:
+                again = False
+
+#Bei jeder Liste in Python können wir maximal auf das len(liste)-1 Element zugreifen
+#              0         1
+'''
+test_liste = ["Thomas", "Leo"]
+print(len(test_liste))
+print(test_liste[1])
+'''
+gamers(gamer_list)
+print(gamer_list)
+game(list_of_question, list_of_action, gamer_list)
