@@ -1,0 +1,40 @@
+import random
+
+# Eines sucht der Spieler aus, eines der Computer automatisch (random.choice)
+# Spiele drei Mal und gib aus wer gewonnen hat!
+
+optionen = ["Schere", "Stein", "Papier"]
+
+spiele_anzahl = 0
+siege_spieler = 0
+siege_computer = 0
+
+while spiele_anzahl < 3:
+    nutzer_zahl = input("Gib die Zahlen ein um auszuwählen. 1) Schere, 2) Stein, 3) Papier")
+    nutzer_wahl = ""
+    if nutzer_zahl == "1":
+        nutzer_wahl = "Schere"
+    elif nutzer_zahl == "2":
+        nutzer_wahl = "Stein"
+    elif nutzer_zahl == "3":
+        nutzer_wahl = "Papier"
+
+    computer_wahl = random.choice(optionen)
+    print(computer_wahl)
+
+    if nutzer_wahl == "Stein" and computer_wahl == "Schere":
+        siege_spieler += 1
+    elif nutzer_wahl == "Schere" and computer_wahl == "Papier":
+        siege_spieler += 1
+    elif nutzer_wahl == "Papier" and computer_wahl == "Stein":
+        siege_spieler += 1
+    elif nutzer_wahl == computer_wahl:
+        pass
+    else:
+        siege_computer += 1
+    spiele_anzahl += 1
+print(siege_spieler)
+if siege_spieler > siege_computer:
+    print("Du hast gewonnen")
+else:
+    print("Der Computer hat gewonnen")
