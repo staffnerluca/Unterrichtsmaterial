@@ -5,6 +5,7 @@
 # Datum automatisch hinzufügen
 
 import os
+import datetime
 
 path = r"C:\Users\staff\PycharmProjects\PythonProject2\TestOrdner"
 
@@ -43,3 +44,17 @@ elif schreiben_oder_lesen == "l":
     datei = open(path + r"\HalloWelt", "r")
     print(datei.read())
     datei.close()
+
+mein_datum = datetime.date(2025, 5, 20)
+meine_zeit = datetime.time(12, 30, 10)
+meine_datetime = datetime.datetime(2025, 5, 11, 12, 13, 17, 50)
+print(meine_datetime.time())
+print(meine_datetime.date())
+heute = datetime.date.today()
+print(heute)
+jetzt = datetime.datetime.now()
+print(jetzt)
+print(jetzt.time())
+
+# Montag = 0; Sonntag = 6
+print(jetzt.weekday())
