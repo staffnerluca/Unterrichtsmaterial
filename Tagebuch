@@ -1,0 +1,45 @@
+# information in eine Datei schreiben
+
+# Daten lesen
+
+# Datum automatisch hinzufügen
+
+import os
+
+path = r"C:\Users\staff\PycharmProjects\PythonProject2\TestOrdner"
+
+for path, ordner_namen, datei_namen in os.walk(path):
+    print(f"Path: {path}")
+    print(f"Ordner: {ordner_namen}")
+    print("Dateiname: " + str(datei_namen))
+
+# os.mkdir("mein Ordner")
+
+#path = os.path.join(path, "neuer Ordner")
+
+
+
+datei = open(path + r"\HalloWelt", "w") # w = write, r = read and a = append (anfügen)
+datei.write("Hallo Leute")
+datei.close()
+
+datei = open(path + r"\HalloWelt", "a")
+datei.write("Schön, dass ihr da seid! :)")
+datei.close()
+
+datei = open(path + r"\HalloWelt", "r")
+print(datei.read())
+datei.close()
+
+# Macht ein Tagebuch daraus, wo man auswählen kann, ob man alle Einträge lesen will, oder ob man einen neuen Eintrag schreiben möchte, dann bitte mit "a" und nicht mit "w"
+
+schreiben_oder_lesen = input("Willst du schreiben (s) oder lesen (l)?")
+if schreiben_oder_lesen == "s":
+    tagebucheintrag = input("Was willst du heute in dein Tagebuch schreiben? ")
+    datei = open(path + r"\HalloWelt", "a")
+    datei.write(tagebucheintrag)
+    datei.close()
+elif schreiben_oder_lesen == "l":
+    datei = open(path + r"\HalloWelt", "r")
+    print(datei.read())
+    datei.close()
