@@ -1,0 +1,17 @@
+import datetime, colorama
+from colorama import Fore
+
+name = "Anthony"
+
+print(f"Alles Gute zum Geburtstag {name} Bro" 
+      "\n Bist der Beste"
+)
+
+today = datetime.date.today().day
+
+print(f"Heute ist der {today:4d}.")
+
+print("\033[4;94mUnterstrichener blauer Text\033[0m")
+
+print(colorama.Fore.RED + "Dieser Text ist rot")
+print(Fore.BLUE + "Das ist blau")
