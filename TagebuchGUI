@@ -28,6 +28,8 @@ def new_file():
 
     yes = tk.Button(want_to_save,text="Yes", command=save, width=10)
     yes.grid(column=0, row=1)
+    no = tk.Button(want_to_save, text="No", command=save_not, width=10)
+    no.grid(column=1, row=1)
 
 root = tk.Tk()
 
