@@ -35,6 +35,7 @@ while number < 3:
 
 # Listen
 namen_aus_meiner_klasse = ["Luca", "Markus", "Daniil", "Erik"]
+print(namen_aus_meiner_klasse[0])
 namen_aus_meiner_klasse[0] = "Charlotte"
 namen_aus_meiner_klasse.append("Luca")
 
